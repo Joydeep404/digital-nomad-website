@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - NomadGuide</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary" href="index.html"><i class="fas fa-globe-americas me-2"></i>NomadGuide</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="about.html">About</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle fw-semibold" href="#" role="button" data-bs-toggle="dropdown">Destinations</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="europe.html">Europe</a></li>
+                            <li><a class="dropdown-item" href="asia.html">Asia</a></li>
+                            <li><a class="dropdown-item" href="americas.html">Americas</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle fw-semibold" href="#" role="button" data-bs-toggle="dropdown">Guides</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="gear.html">Tech & Gear</a></li>
+                            <li><a class="dropdown-item" href="visa.html">Visa & Legal</a></li>
+                            <li><a class="dropdown-item" href="budget.html">Budget Calculator</a></li>
+                            <li><a class="dropdown-item" href="health.html">Health & Insurance</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link active fw-semibold" href="contact.html">Contact</a></li>
+                </ul>
+                <div class="d-flex gap-2" id="auth-buttons">
+                    <a href="login.html" class="btn btn-outline-primary fw-semibold px-4">Login</a>
+                    <a href="register.html" class="btn btn-primary fw-semibold px-4 shadow-sm">Register</a>
+                </div>
+                <!-- Direct Admin Button (Always visible in navbar when logged in as admin) -->
+<a href="admin-dashboard.html" id="adminDirectBtn" class="btn btn-warning fw-semibold px-3 me-2" style="display: none;">
+    <i class="fas fa-cog me-1"></i> Admin Dashboard
+</a>
+
+<!-- User Profile Dropdown -->
+<div class="dropdown d-none" id="user-profile">
+    <button class="btn btn-light dropdown-toggle fw-semibold shadow-sm" type="button" data-bs-toggle="dropdown">
+        <i class="fas fa-user-circle me-1 text-primary"></i> <span id="display-name">User</span>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end shadow">
+        <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2 text-muted"></i>My Profile</a></li>
+        <li id="adminDashboardLink" style="display: none;"><a class="dropdown-item" href="admin-dashboard.html"><i class="fas fa-cog me-2 text-primary"></i>Admin Dashboard</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item text-danger fw-semibold" href="#" id="logout-btn"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+    </ul>
+</div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="contact-hero">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Get In Touch</h1>
+            <p class="lead">Have questions? Want to join our community? We'd love to hear from you!</p>
+        </div>
+    </section>
+
+    <!-- Contact Info & Form Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row g-5">
+                <!-- Left: Contact Info -->
+                <div class="col-lg-5">
+                    <div class="contact-info-card">
+                        <h3 class="fw-bold mb-4">Contact Information</h3>
+                        <p class="text-muted mb-4">Reach out to us through any of these channels. Our team typically responds within 24 hours.</p>
+                        
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="bg-primary bg-opacity-10 text-primary rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
+                                <i class="fas fa-envelope fa-lg"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-0">Email Us</h6>
+                                <p class="text-muted mb-0">joydeep404@qq.com</p>
+                            </div>
+                        </div>
+
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="bg-success bg-opacity-10 text-success rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
+                                <i class="fas fa-phone fa-lg"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-0">Call Us</h6>
+                                <p class="text-muted mb-0">+86 133 5639-1012</p>
+                            </div>
+                        </div>
+
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="bg-warning bg-opacity-10 text-warning rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
+                                <i class="fas fa-map-marker-alt fa-lg"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-0">Headquarters</h6>
+                                <p class="text-muted mb-0">Anywhere with Wi-Fi! 🌍</p>
+                            </div>
+                        </div>
+
+                        <hr class="my-4">
+                        <h6 class="fw-bold mb-3">Follow Our Journey</h6>
+                        <div class="d-flex gap-3">
+                            <a href="#" class="btn btn-outline-primary btn-sm rounded-circle" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="btn btn-outline-info btn-sm rounded-circle" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="btn btn-outline-danger btn-sm rounded-circle" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="btn btn-outline-dark btn-sm rounded-circle" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Contact Form -->
+                <div class="col-lg-7">
+                    <div class="contact-form-card">
+                        <h3 class="fw-bold mb-4">Send Us a Message</h3>
+                        <form id="contactForm">
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">Your Name</label>
+                                <input type="text" class="form-control" id="contactName" placeholder="John Doe" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">Email Address</label>
+                                <input type="email" class="form-control" id="contactEmail" placeholder="name@example.com" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">Subject</label>
+                                <input type="text" class="form-control" id="contactSubject" placeholder="How can we help?" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">Message</label>
+                                <textarea class="form-control" id="contactMessage" rows="5" placeholder="Write your message here..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-lg w-100 fw-semibold hover-lift">
+                                <i class="fas fa-paper-plane me-2"></i>Send Message
+                            </button>
+                            <div id="contactAlert" class="alert mt-3 d-none" role="alert"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="fw-bold display-5 mb-3">Join the Nomad Newsletter</h2>
+                    <p class="lead opacity-75 mb-4">Get weekly tips on remote work, destination guides, and exclusive deals sent straight to your inbox.</p>
+                    <form class="d-flex justify-content-center newsletter-form" id="newsletterForm">
+                        <input type="email" class="form-control" id="newsletterEmail" placeholder="Enter your email address" required style="max-width: 400px;">
+                        <button type="submit" class="btn btn-warning fw-bold text-dark">Subscribe</button>
+                    </form>
+                    <div id="newsletterAlert" class="alert mt-3 d-none" role="alert"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-0">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2026 NomadGuide. Designed by Joydeep柏晋州. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Americas - NomadGuide</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary" href="index.html"><i class="fas fa-globe-americas me-2"></i>NomadGuide</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="about.html">About</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active fw-semibold" href="#" role="button" data-bs-toggle="dropdown">Destinations</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="europe.html">Europe</a></li>
+                            <li><a class="dropdown-item" href="asia.html">Asia</a></li>
+                            <li><a class="dropdown-item" href="americas.html">Americas</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle fw-semibold" href="#" role="button" data-bs-toggle="dropdown">Guides</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="gear.html">Tech & Gear</a></li>
+                            <li><a class="dropdown-item" href="visa.html">Visa & Legal</a></li>
+                            <li><a class="dropdown-item" href="budget.html">Budget Calculator</a></li>
+                            <li><a class="dropdown-item" href="health.html">Health & Insurance</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="contact.html">Contact</a></li>
+                </ul>
+                <div class="d-flex gap-2" id="auth-buttons">
+                    <a href="login.html" class="btn btn-outline-primary fw-semibold px-4">Login</a>
+                    <a href="register.html" class="btn btn-primary fw-semibold px-4 shadow-sm">Register</a>
+                </div>
+                <!-- Direct Admin Button (Always visible in navbar when logged in as admin) -->
+<a href="admin-dashboard.html" id="adminDirectBtn" class="btn btn-warning fw-semibold px-3 me-2" style="display: none;">
+    <i class="fas fa-cog me-1"></i> Admin Dashboard
+</a>
+
+<!-- User Profile Dropdown -->
+<div class="dropdown d-none" id="user-profile">
+    <button class="btn btn-light dropdown-toggle fw-semibold shadow-sm" type="button" data-bs-toggle="dropdown">
+        <i class="fas fa-user-circle me-1 text-primary"></i> <span id="display-name">User</span>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end shadow">
+        <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2 text-muted"></i>My Profile</a></li>
+        <li id="adminDashboardLink" style="display: none;"><a class="dropdown-item" href="admin-dashboard.html"><i class="fas fa-cog me-2 text-primary"></i>Admin Dashboard</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item text-danger fw-semibold" href="#" id="logout-btn"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+    </ul>
+</div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="americas-hero">
+        <div class="container">
+            <h1 class="display-4 fw-bold">The Americas</h1>
+            <p class="lead">Vibrant cultures, matching time zones for US workers, and incredible nature.</p>
+        </div>
+    </section>
+
+    <!-- Interactive Carousel Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="fw-bold text-center mb-4">Top Destinations</h2>
+            <div id="americasCarousel" class="carousel slide nomad-carousel" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#americasCarousel" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#americasCarousel" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#americasCarousel" data-bs-slide-to="2"></button>
+                </div>
+                <div class="carousel-inner">
+                    <!-- Slide 1 -->
+                    <div class="carousel-item active">
+                        <img src="https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?auto=format&fit=crop&w=1200&q=80" class="d-block w-100" alt="Mexico City">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h3>Mexico City, Mexico</h3>
+                            <p class="fs-4">A massive metropolis with world-class food, art, and a huge expat community.</p>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="carousel-item">
+                        <img src="https://picsum.photos/1200/450?random=2" class="d-block w-100" alt="Medellin">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h3>Medellin, Colombia</h3>
+                            <p class="fs-4">The "City of Eternal Spring". Perfect weather year-round and incredibly affordable.</p>
+                        </div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="carousel-item">
+                        <img src="https://images.unsplash.com/photo-1612294037637-ec328d0e075e?auto=format&fit=crop&w=1200&q=80" class="d-block w-100" alt="Buenos Aires">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h3>Buenos Aires, Argentina</h3>
+                            <p class="fs-4">European architecture, passionate tango culture, and a booming tech scene.</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#americasCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#americasCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="fw-bold text-center mb-5">What Nomads Are Saying</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="testimonial-card h-100">
+                        <i class="fas fa-quote-left quote-icon mb-3"></i>
+                        <p class="text-muted fst-italic">"Moving to Mexico City was the best decision for my freelance career. The time zone matches NYC perfectly, and the tacos are unbeatable!"</p>
+                        <div class="d-flex align-items-center mt-4">
+                            <div class="bg-warning rounded-circle d-flex align-items-center justify-content-center text-white fw-bold" style="width: 50px; height: 50px;">SJ</div>
+                            <div class="ms-3">
+                                <h6 class="fw-bold mb-0">Sarah Jenkins</h6>
+                                <small class="text-muted">UX Designer</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card h-100">
+                        <i class="fas fa-quote-left quote-icon mb-3"></i>
+                        <p class="text-muted fst-italic">"Medellin has an amazing community. I've met more fellow developers here in 3 months than I did in 3 years back home."</p>
+                        <div class="d-flex align-items-center mt-4">
+                            <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center text-white fw-bold" style="width: 50px; height: 50px;">MR</div>
+                            <div class="ms-3">
+                                <h6 class="fw-bold mb-0">Mark Rodriguez</h6>
+                                <small class="text-muted">Software Engineer</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card h-100">
+                        <i class="fas fa-quote-left quote-icon mb-3"></i>
+                        <p class="text-muted fst-italic">"Buenos Aires feels like Paris but with a Latin soul. The cost of living is incredibly low right now, making it a nomad paradise."</p>
+                        <div class="d-flex align-items-center mt-4">
+                            <div class="bg-danger rounded-circle d-flex align-items-center justify-content-center text-white fw-bold" style="width: 50px; height: 50px;">EL</div>
+                            <div class="ms-3">
+                                <h6 class="fw-bold mb-0">Emma Liu</h6>
+                                <small class="text-muted">Content Writer</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive FAQ Accordion -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="fw-bold text-center mb-5">Frequently Asked Questions</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion" id="americasFAQ">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                    Is it safe to work remotely in these cities?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#americasFAQ">
+                                <div class="accordion-body text-muted">
+                                    Yes, generally! Like any major city, it's important to stay aware of your surroundings. Stick to popular nomad neighborhoods (like Roma/Condesa in CDMX or El Poblado in Medellin), use Uber at night, and keep your devices secure in cafes.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                                    What about internet speeds in Latin America?
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#americasFAQ">
+                                <div class="accordion-body text-muted">
+                                    Internet speeds have improved massively. In major cities, you can easily get 50-100 Mbps in co-working spaces and modern apartments. Always check reviews for specific Airbnbs before booking!
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                                    How do I handle time zones for US clients?
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#americasFAQ">
+                                <div class="accordion-body text-muted">
+                                    This is the biggest advantage of the Americas! Mexico and Colombia are in the same or adjacent time zones to the US East Coast. Argentina is only 1-2 hours ahead. You can easily attend morning stand-ups without waking up at 3 AM.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+        <!-- City Deep Dives (Asia-Style Alternating Layout) -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="fw-bold text-center mb-5">City Deep Dives</h2>
+            
+            <!-- Row 1: Mexico City -->
+            <div class="feature-row">
+                <div class="feature-text">
+                    <h2 class="fw-bold text-danger mb-3">Mexico City, Mexico</h2>
+                    <p class="lead text-muted">The ultimate megacity experience in the Americas.</p>
+                    <p>CDMX is a massive metropolis with world-class food, incredible art scenes, and a huge expat community. Neighborhoods like Roma and Condesa are packed with cafes perfect for remote work.</p>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-check-circle text-danger me-2"></i> Average Cost: $1,500/month</li>
+                        <li><i class="fas fa-check-circle text-danger me-2"></i> Visa: 180-day Tourist Card (FMM)</li>
+                        <li><i class="fas fa-check-circle text-danger me-2"></i> Vibe: Urban, Artistic, & Foodie</li>
+                    </ul>
+                </div>
+                <div class="feature-image">
+                    <img src="https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?auto=format&fit=crop&w=800&q=80" alt="Mexico City">
+                </div>
+            </div>
+
+            <!-- Row 2: Medellin (Reversed) -->
+            <div class="feature-row reverse">
+                <div class="feature-text">
+                    <h2 class="fw-bold text-danger mb-3">Medellin, Colombia</h2>
+                    <p class="lead text-muted">The "City of Eternal Spring".</p>
+                    <p>Medellin boasts perfect weather year-round, incredibly affordable living, and a massive digital nomad hub in the El Poblado neighborhood. It's safe, modern, and full of energy.</p>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-check-circle text-danger me-2"></i> Average Cost: $1,100/month</li>
+                        <li><i class="fas fa-check-circle text-danger me-2"></i> Visa: 90-day Tourist Stamp</li>
+                        <li><i class="fas fa-check-circle text-danger me-2"></i> Vibe: Relaxed, Social, & Affordable</li>
+                    </ul>
+                </div>
+                <div class="feature-image">
+                    <img src="https://images.pexels.com/photos/1440476/pexels-photo-1440476.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Medellin">
+                </div>
+            </div>
+
+            <!-- Row 3: Buenos Aires -->
+            <div class="feature-row">
+                <div class="feature-text">
+                    <h2 class="fw-bold text-danger mb-3">Buenos Aires, Argentina</h2>
+                    <p class="lead text-muted">European architecture with a Latin soul.</p>
+                    <p>Buenos Aires offers passionate tango culture, incredible steak, and a booming tech scene. Thanks to the current exchange rate, it is one of the most affordable major cities in the world right now.</p>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-check-circle text-danger me-2"></i> Average Cost: $900/month</li>
+                        <li><i class="fas fa-check-circle text-danger me-2"></i> Visa: 90-day Tourist Visa</li>
+                        <li><i class="fas fa-check-circle text-danger me-2"></i> Vibe: Cultural, Nightlife, & Historic</li>
+                    </ul>
+                </div>
+                <div class="feature-image">
+                    <img src="images/buenos-aires.jpg" alt="Buenos Aires">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2026 NomadGuide. Designed by Joydeep柏晋州. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

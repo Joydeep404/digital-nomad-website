@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech & Gear - NomadGuide</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary" href="index.html"><i class="fas fa-globe-americas me-2"></i>NomadGuide</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="about.html">About</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle fw-semibold" href="#" role="button" data-bs-toggle="dropdown">Destinations</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="europe.html">Europe</a></li>
+                            <li><a class="dropdown-item" href="asia.html">Asia</a></li>
+                            <li><a class="dropdown-item" href="americas.html">Americas</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active fw-semibold" href="#" role="button" data-bs-toggle="dropdown">Guides</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="gear.html">Tech & Gear</a></li>
+                            <li><a class="dropdown-item" href="visa.html">Visa & Legal</a></li>
+                            <li><a class="dropdown-item" href="budget.html">Budget Calculator</a></li>
+                            <li><a class="dropdown-item" href="health.html">Health & Insurance</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="contact.html">Contact</a></li>
+                </ul>
+                <div class="d-flex gap-2" id="auth-buttons">
+                    <a href="login.html" class="btn btn-outline-primary fw-semibold px-4">Login</a>
+                    <a href="register.html" class="btn btn-primary fw-semibold px-4 shadow-sm">Register</a>
+                </div>
+                <!-- Direct Admin Button (Always visible in navbar when logged in as admin) -->
+<a href="admin-dashboard.html" id="adminDirectBtn" class="btn btn-warning fw-semibold px-3 me-2" style="display: none;">
+    <i class="fas fa-cog me-1"></i> Admin Dashboard
+</a>
+
+<!-- User Profile Dropdown -->
+<div class="dropdown d-none" id="user-profile">
+    <button class="btn btn-light dropdown-toggle fw-semibold shadow-sm" type="button" data-bs-toggle="dropdown">
+        <i class="fas fa-user-circle me-1 text-primary"></i> <span id="display-name">User</span>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end shadow">
+        <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2 text-muted"></i>My Profile</a></li>
+        <li id="adminDashboardLink" style="display: none;"><a class="dropdown-item" href="admin-dashboard.html"><i class="fas fa-cog me-2 text-primary"></i>Admin Dashboard</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item text-danger fw-semibold" href="#" id="logout-btn"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+    </ul>
+</div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="gear-hero">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Essential Tech & Gear</h1>
+            <p class="lead">The ultimate packing list for the modern digital nomad.</p>
+        </div>
+    </section>
+
+    <!-- Interactive Tabs & Products -->
+    <section class="py-5">
+        <div class="container">
+            
+            <!-- Tab Navigation -->
+            <ul class="nav nav-pills gear-tabs justify-content-center mb-5" id="gearTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="laptops-tab" data-bs-toggle="pill" data-bs-target="#laptops" type="button"> Laptops</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="audio-tab" data-bs-toggle="pill" data-bs-target="#audio" type="button">🎧 Audio</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="travel-tab" data-bs-toggle="pill" data-bs-target="#travel" type="button">🎒 Travel Gear</button>
+                </li>
+            </ul>
+
+            <!-- Tab Content -->
+            <div class="tab-content" id="gearTabContent">
+                
+                <!-- Laptops Tab -->
+                <div class="tab-pane fade show active" id="laptops" role="tabpanel">
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="card product-card h-100">
+                                <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="MacBook">
+                                <div class="card-body text-center">
+                                    <h5 class="fw-bold">MacBook Air M2</h5>
+                                    <p class="text-muted small">18-hour battery life, incredibly light.</p>
+                                    <button class="btn btn-outline-primary add-kit-btn w-100" onclick="addToKit(this, 'MacBook Air M2')">Add to My Kit</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card product-card h-100">
+                                <img src="https://images.unsplash.com/photo-1544731612-de7f96afe55f?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Dell XPS">
+                                <div class="card-body text-center">
+                                    <h5 class="fw-bold">Dell XPS 13</h5>
+                                    <p class="text-muted small">Beautiful 4K display, Windows powerhouse.</p>
+                                    <button class="btn btn-outline-primary add-kit-btn w-100" onclick="addToKit(this, 'Dell XPS 13')">Add to My Kit</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card product-card h-100">
+                                <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Framework">
+                                <div class="card-body text-center">
+                                    <h5 class="fw-bold">Framework Laptop</h5>
+                                    <p class="text-muted small">Fully repairable and modular design.</p>
+                                    <button class="btn btn-outline-primary add-kit-btn w-100" onclick="addToKit(this, 'Framework Laptop')">Add to My Kit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Audio Tab -->
+                <div class="tab-pane fade" id="audio" role="tabpanel">
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="card product-card h-100">
+                                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Headphones">
+                                <div class="card-body text-center">
+                                    <h5 class="fw-bold">Sony WH-1000XM5</h5>
+                                    <p class="text-muted small">Best-in-class noise cancellation for cafes.</p>
+                                    <button class="btn btn-outline-primary add-kit-btn w-100" onclick="addToKit(this, 'Sony WH-1000XM5')">Add to My Kit</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card product-card h-100">
+                                <img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Earbuds">
+                                <div class="card-body text-center">
+                                    <h5 class="fw-bold">AirPods Pro 2</h5>
+                                    <p class="text-muted small">Compact, great for calls and commuting.</p>
+                                    <button class="btn btn-outline-primary add-kit-btn w-100" onclick="addToKit(this, 'AirPods Pro 2')">Add to My Kit</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card product-card h-100">
+                                <img src="https://images.unsplash.com/photo-1558089687-f282ffcbc126?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Mic">
+                                <div class="card-body text-center">
+                                    <h5 class="fw-bold">Blue Yeti Mic</h5>
+                                    <p class="text-muted small">Crystal clear audio for Zoom meetings.</p>
+                                    <button class="btn btn-outline-primary add-kit-btn w-100" onclick="addToKit(this, 'Blue Yeti Mic')">Add to My Kit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Travel Gear Tab -->
+                <div class="tab-pane fade" id="travel" role="tabpanel">
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="card product-card h-100">
+                                <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Backpack">
+                                <div class="card-body text-center">
+                                    <h5 class="fw-bold">Osprey Farpoint 40</h5>
+                                    <p class="text-muted small">The perfect carry-on travel backpack.</p>
+                                    <button class="btn btn-outline-primary add-kit-btn w-100" onclick="addToKit(this, 'Osprey Farpoint 40')">Add to My Kit</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card product-card h-100">
+                                <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Adapter">
+                                <div class="card-body text-center">
+                                    <h5 class="fw-bold">Universal Adapter</h5>
+                                    <p class="text-muted small">Works in 150+ countries. A must-have!</p>
+                                    <button class="btn btn-outline-primary add-kit-btn w-100" onclick="addToKit(this, 'Universal Adapter')">Add to My Kit</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card product-card h-100">
+                                <img src="https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Powerbank">
+                                <div class="card-body text-center">
+                                    <h5 class="fw-bold">Anker 20K Powerbank</h5>
+                                    <p class="text-muted small">Never run out of battery on long flights.</p>
+                                    <button class="btn btn-outline-primary add-kit-btn w-100" onclick="addToKit(this, 'Anker 20K Powerbank')">Add to My Kit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive "My Kit" Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="fw-bold text-center mb-4"> My Travel Kit</h2>
+            <p class="text-center text-muted mb-4">Items you selected will appear here!</p>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="my-kit-section">
+                        <div id="kit-list">
+                            <p class="text-center text-muted mb-0" id="empty-kit-msg">Your kit is empty. Add some gear above!</p>
+                        </div>
+                        <div class="text-center mt-3">
+                            <button class="btn btn-danger btn-sm" onclick="clearKit()">Clear Kit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2026 NomadGuide. Designed by Joydeep柏晋州. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

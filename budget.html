@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Calculator - NomadGuide</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary" href="index.html"><i class="fas fa-globe-americas me-2"></i>NomadGuide</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="about.html">About</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle fw-semibold" href="#" role="button" data-bs-toggle="dropdown">Destinations</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="europe.html">Europe</a></li>
+                            <li><a class="dropdown-item" href="asia.html">Asia</a></li>
+                            <li><a class="dropdown-item" href="americas.html">Americas</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active fw-semibold" href="#" role="button" data-bs-toggle="dropdown">Guides</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="gear.html">Tech & Gear</a></li>
+                            <li><a class="dropdown-item" href="visa.html">Visa & Legal</a></li>
+                            <li><a class="dropdown-item" href="budget.html">Budget Calculator</a></li>
+                            <li><a class="dropdown-item" href="health.html">Health & Insurance</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="contact.html">Contact</a></li>
+                </ul>
+                <div class="d-flex gap-2" id="auth-buttons">
+                    <a href="login.html" class="btn btn-outline-primary fw-semibold px-4">Login</a>
+                    <a href="register.html" class="btn btn-primary fw-semibold px-4 shadow-sm">Register</a>
+                </div>
+                <!-- Direct Admin Button (Always visible in navbar when logged in as admin) -->
+<a href="admin-dashboard.html" id="adminDirectBtn" class="btn btn-warning fw-semibold px-3 me-2" style="display: none;">
+    <i class="fas fa-cog me-1"></i> Admin Dashboard
+</a>
+
+<!-- User Profile Dropdown -->
+<div class="dropdown d-none" id="user-profile">
+    <button class="btn btn-light dropdown-toggle fw-semibold shadow-sm" type="button" data-bs-toggle="dropdown">
+        <i class="fas fa-user-circle me-1 text-primary"></i> <span id="display-name">User</span>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end shadow">
+        <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2 text-muted"></i>My Profile</a></li>
+        <li id="adminDashboardLink" style="display: none;"><a class="dropdown-item" href="admin-dashboard.html"><i class="fas fa-cog me-2 text-primary"></i>Admin Dashboard</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item text-danger fw-semibold" href="#" id="logout-btn"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+    </ul>
+</div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="budget-hero">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Budget Calculator</h1>
+            <p class="lead">Plan your finances and see how much you really need to live the nomad life.</p>
+        </div>
+    </section>
+
+    <!-- Calculator Form -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="bg-white p-4 p-md-5 rounded shadow-sm">
+                        <h3 class="fw-bold mb-4 text-center">Enter Your Estimated Monthly Expenses (USD)</h3>
+                        <form id="budgetForm">
+                            <div class="row">
+                                <div class="col-md-6 budget-input-group">
+                                    <label>🏠 Accommodation (Rent/Airbnb)</label>
+                                    <input type="number" class="budget-input" id="exp-accommodation" placeholder="e.g. 500" min="0">
+                                </div>
+                                <div class="col-md-6 budget-input-group">
+                                    <label>🍔 Food & Groceries</label>
+                                    <input type="number" class="budget-input" id="exp-food" placeholder="e.g. 300" min="0">
+                                </div>
+                                <div class="col-md-6 budget-input-group">
+                                    <label>💻 Co-working Space</label>
+                                    <input type="number" class="budget-input" id="exp-coworking" placeholder="e.g. 100" min="0">
+                                </div>
+                                <div class="col-md-6 budget-input-group">
+                                    <label>🚌 Transportation</label>
+                                    <input type="number" class="budget-input" id="exp-transport" placeholder="e.g. 50" min="0">
+                                </div>
+                                <div class="col-md-6 budget-input-group">
+                                    <label>🎮 Entertainment & Dining Out</label>
+                                    <input type="number" class="budget-input" id="exp-entertainment" placeholder="e.g. 200" min="0">
+                                </div>
+                                <div class="col-md-6 budget-input-group">
+                                    <label>🏥 Health & Travel Insurance</label>
+                                    <input type="number" class="budget-input" id="exp-insurance" placeholder="e.g. 50" min="0">
+                                </div>
+                                <div class="col-md-6 budget-input-group">
+                                    <label>📱 Phone & Internet</label>
+                                    <input type="number" class="budget-input" id="exp-internet" placeholder="e.g. 40" min="0">
+                                </div>
+                                <div class="col-md-6 budget-input-group">
+                                    <label>🎒 Miscellaneous / Buffer</label>
+                                    <input type="number" class="budget-input" id="exp-misc" placeholder="e.g. 100" min="0">
+                                </div>
+                            </div>
+                            <div class="text-center mt-4">
+                                <button type="button" class="btn btn-success btn-lg px-5 py-2 fw-semibold hover-lift" onclick="calculateBudget()">
+                                    <i class="fas fa-calculator me-2"></i> Calculate My Budget
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dynamic Results Display -->
+            <div class="row justify-content-center mt-5">
+                <div class="col-lg-8">
+                    <div class="total-display" id="totalDisplay">
+                        <h4 class="text-muted">Your Estimated Monthly Budget</h4>
+                        <div class="total-amount budget-low" id="totalAmount">$0</div>
+                        <p class="text-muted mb-0 fs-5" id="budgetAdvice">Enter your expenses above and click calculate!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2026 NomadGuide. Designed by Joydeep柏晋州. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
